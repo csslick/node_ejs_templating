@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Node.js Blog</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		body{
+			padding: 20px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<%- include('header') %>
+		<div class="jumbotron">
+			<h1>All about Node</h1>
+			<p class="lead">Check out out articles below!</p>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="list-group">
+					<!-- blog 글 목록을 출력 -->
+					<% for(post in posts){ %>
+						<a href="/post/<%= posts[post].id %>" class="list-group-item">
+							<h4><%= posts[post].title %></h4>
+							<p><%= posts[post].author %></p>
+						</a>
+					<% }%>
+
+				</div>
+			</div>
+		</div>
+		<%- include('footer') %>
+	</div>
+</body>
+</html>
